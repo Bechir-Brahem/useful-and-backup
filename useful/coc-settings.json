@@ -1,0 +1,10 @@
+{
+	"diagnostic.refreshOnInsertMode": true,
+	"diagnostic.level": "hint",
+	"diagnostic.checkCurrentLine": true,
+	"diagnostic.virtualText": true,
+	"diagnostic.virtualTextPrefix": " ʕ•ᴥ•ʔ ",
+	"diagnostic.virtualTextLineSeparator": " ",
+	"diagnostic.separateRelatedInformationAsDiagnostics": true,
+	"diagnostic.format": "[%severity] %message"
+}

@@ -1,0 +1,189 @@
+%&latex
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{geometry}
+\renewcommand{\baselinestretch}{1.2}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=30mm,
+	top=30mm,
+}
+\begin{document}
+	
+	%+Title
+	\title{discrete math}
+	\author{Bechir Brahem}
+	\date{\vspace{-5ex}}
+	\maketitle
+	
+	
+	\par\noindent\rule{\textwidth}{3pt}
+	\section{Points About Logic\ }
+		\subsection{Proposition}
+			\textbf{Definition. }A proposition is a statement (communication) that is either true or
+			false. 
+		\subsection{Predicate}
+			\textbf{Definition.} A predicate can be understood as a proposition whose truth depends on the value
+			of one or more variables. 
+		\pagebreak
+		
+	\par\noindent\rule{\textwidth}{3pt}
+	\section{Induction,WOP and Invariants\ }
+		\subsection{Well Ordering Principle}
+			\underline{\textbf{Theorem.}} Every nonempty set of nonnegative integers has a smallest element.
+			\paragraph{scheme of the proof. }
+				Principle, you can take the following steps:\\
+				More generally, to prove that “P(n) is true $\forall n \in \mathbb{N}$ .” using the Well Ordering
+			\begin{itemize}
+			
+				\item Define the set, C , of counterexamples to P being true. Namely, define \begin{center}$C ::= \{n \in \mathbb{N} | P(n) is false \}$\end{center}
+				\item Use a proof by contradiction and assume that C is nonempty.
+				\item By the Well Ordering Principle, there will be a smallest element, n, in C .
+				\item Reach a contradiction (somehow)—often by showing how to use n to find another member of C that is smaller than n. (This is the open-ended part of the proof task.)
+				\item Conclude that C must be empty, that is, no counterexamples exist. QED$\blacksquare$
+			\end{itemize}
+			\textbf{examples.} it can be used to prove the sum of integers is:$\sum_{0}^{n} k =\frac{n(n+1)}{2}$
+			 or to show that every integer is a product of primes.(\emph{Fundamental theorem of arithmetic without uniqueness})
+			 \paragraph{proof.} 
+				 let the predicate P(n):=" $\forall n \in \mathbb{N} | n=p_{1}p_{2} ... p_{k}$ "
+				let S={n | P(n) is false}
+				n is a positive integer, we assume that S$\neq\emptyset$ by the WOP S has a smallest element $n_{0}$.
+				 if $n_{0}$ was a prime it would be in S so $n_{0}$ is not a prime $\Rightarrow$ $n_{0}$=ab
+				 $\Rightarrow 0 < a,b < n_{0}$ so a=$p_{1}p_{2} ... p_{k}$ and b$=q_{1}q_{2} ... q_{k}$
+				  where $p_{i}$ and $q_{i}$ are primes
+				 $ \Rightarrow $ ab$ \in S $$ \Rightarrow $ $ n_{0}\in S $ absurd.
+				 hence we have P(n)
+		 \subsection{Induction}
+			 \paragraph{scheme of the proof.}
+			 let P(n) be the predicate we want to provein S.\\If:\\
+			
+			
+			\[
+			\begin{cases}
+			P(n_0)\ is\ true\\
+			P(n)\Rightarrow\ P(n+1) 
+			\end{cases}
+				\]
+			Then:\\
+			P(m) is true $ \forall m \in S $
+		\subsection{Strong Induction}
+			\paragraph{scheme of the proof.}
+			let P(n) be the predicate we want to prove in S.\\If:\\
+			\[
+			\begin{cases}
+			P(n_0)\ is\ true\\
+			\forall n \in S,\ we\ have\ P(0),P(1)...P(n)\Rightarrow P(n+1)
+			\end{cases}
+			\]
+			Then:\\
+			P(m) is true $\forall m\in$ S
+			\paragraph{examples.}P(n)::="\emph{Every integer greater than 1 is a product of primes.}"\\
+				2 is a prime so we have P(2).\\
+				assuming we have P(0)...P(n),\\
+				if n+1 is a prime then P(n+1)\\
+				if n+1 is composite then n+1=ab such that $1<a,b<n$. so we have P(a) and P(b) and so n+1 is a prime.
+				$ \Rightarrow P(n+1)$\\
+				so $ \forall m \in S,P(m) $
+		\subsection{Invariants}{
+			\paragraph{}{
+				The idea of the proof by invariant is that for some process there is a proprety X that remains constant for every state.}
+			\paragraph{example.}{
+				say that a robot on a grid can only move diagonally.from the initial position (0,0) the robot can go to (1,1),(-1,1),(1,-1),(-1,-1)\\
+				\emph{claim. a robot can never reach (1,0) if (0,0) is its initial position.}\\
+				\textbf{\underline{proof.}} the invariant:\emph{if (0,0) is the initial state then whatever position the robot gets into (x,y) x+y is even.}\\
+				base case: 0+0 is even.\\
+				induction:if the robot is in position (x,y) we assume that x+y is even then the next position (a,b) will be:(x+1,y+1) or (x-1,y-1) or (x-1,y+1) or (x+1,y-1). and so in every case a+b is even.\\
+				for any position (x,y) to be reachable x+y must be even.\\and so (1,0) is not reachable from (0,0)
+				
+				
+			}
+			\paragraph{scheme of the proof}{
+			In summary, if you would like to prove that some property X holds for every
+			step of a process, then it is often helpful to use the following method:
+			\begin{itemize}
+				\item Define P(t) to be the predicate that X holds immediately after step t .
+				\item Show that P(0) is true, namely that X holds for the start state.
+				\item show that:
+				\[
+				\forall t\in\mathbb{N},P(t)\Rightarrow P(t+1)
+				\]
+			\end{itemize}
+			}
+		}
+	\pagebreak
+	\par\noindent\rule{\textwidth}{3pt}
+	\section{Number Theory}{
+		\subsection{Math theory}{
+			\subsubsection{Basics}{
+				\paragraph{Definition. }
+					a divides b (notation a | b) iff there is an integer k such that
+					\begin{center}ak = b\end{center}
+				}
+				\paragraph{Theorem. }Let n and d be integers such that d $ \neq $ 0.
+				Then there exists a unique pair of integers q and r, such that:
+				\begin{center}\large n=dq+r , $ 0\leq r \leq |d|$\end{center}
+				\paragraph{Euclid Algorithm. }{for b$ \neq $0 
+					\begin{center}
+					\large	gcd(a,b)=gcd(b,rem(a,b))
+					\end{center}
+				}
+				\paragraph{Bezout Theorem. }{The greatest common divisor of a and b is a linear combination
+					of a and b. That is:
+					\begin{center}
+						\large gcd(a,b)=sa + tb
+					\end{center}
+					for some t,s}
+			}
+			\subsubsection{Prime Numbers. }{
+				\begin{itemize}
+					\item\textbf{Twin Prime Conjecture} There are infinitely many primes p such that p + 2 is also a prime
+					\item\textbf{Conjectured Inefficiency of Factoring} Given the product of two large primes n=pq, there is no efficient procedure to recover the primes p and q. That is,no polynomial time procedure. Best solution so far 
+					\begin{center}\large$ e^{1.9(ln\ n)^\frac{1}{3}(ln\ ln\ n)^\frac{2}{3}} $\end{center}
+					\item\textbf{Goldbach’s Conjecture} every even integer greater than two is equal to the sum of two primes.
+				\end{itemize}
+				\paragraph{Prime Distribution. }
+				{
+					\begin{center}$\pi$(n)::=card(\{p, p is prime and 2$\leq$p$ \leq $n     \})\end{center}
+				}
+				\paragraph{Prime Number Theorem. }{
+					$$\lim_{x\to\infty}\frac{\pi(n)}{n/ln(n)}=1$$
+				}
+				\paragraph{Fundamental Theorem of Arithmetic. }{Every positive integer is a
+				product of a unique weakly decreasing sequence of primes.}
+			}
+			\subsubsection{Modular Arithmetic}{
+				On the first page of his masterpiece on number theory, Disquisitiones Arithmeticae,
+				Gauss introduced the notion of “congruence.” Now, Gauss is another guy who
+				managed to cough up a half-decent idea every now and then, so let’s take a look
+				at this one. Gauss said that a is congruent to b modulo n iff n | (a-b). This is
+				written
+				$$ a\equiv b (mod\ n) $$
+				\begin{equation}\label{key}
+				 a\equiv b (mod\ n)\ \ \Leftrightarrow\ \ rem(a,n)= rem(b,n) 
+				\end{equation}
+				\\We have $a\equiv b (mod\ n)$ and $c\equiv d (mod\ n)$ then:
+				$$ a+c \equiv b+d (mod\ n)$$ $$ a b\equiv cd (mod\ n)$$ 
+			\subsubsection{The Ring $ \mathbb{Z}_n $}{
+				$ \mathbb{Z}_n $=\{r $|$ for a$ \in \mathbb{Z}, a\equiv r (mod\ n) $\}	 for example $\mathbb{Z}_n $=\{0,1,2...n\},\\ 
+				we define $ r=a\pmb{+_n} b $ :$(a,b)\in\mathbb{Z}_n $ $\rightarrow\ $$r\in\mathbb{Z}_n $ such that a+b$ \equiv $ r (mod n)\\
+				for example 5 $ +_7 $ 4 = 2 \\
+				we define $ r=a\pmb{\cdot_n} b $ :$(a,b)\in\mathbb{Z}_n $ $\rightarrow\ $$r\in\mathbb{Z}_n $ such that a$ \cdot $b$ \equiv $ r (mod n)\\
+				for example 5 $ \cdot_7 $ 4 = 6
+				
+				
+				}
+			}
+			
+		
+	
+		
+	
+	}
+
+
+\end{document}
+
+
