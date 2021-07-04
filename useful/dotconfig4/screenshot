@@ -1,0 +1,6 @@
+#!/bin/bash
+HOME_DIR="/home/bb"
+DIR=$HOME_DIR/screenshots
+NAME=$(date +%Y_%b_%d_%H_%M_%S_%N.png)
+deepin-screenshot -n -s  $DIR/$NAME
+cat $DIR/$NAME |  xclip -i -selection clipboard -target image/png
