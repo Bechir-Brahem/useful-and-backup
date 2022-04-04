@@ -23,4 +23,4 @@ lpr /usr/share/cups/data/default-testpage.pdf -P printerMP280
 ```
 
 
-
+if you run in a problem delete and reuse lpadmin command
