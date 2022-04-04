@@ -67,3 +67,4 @@ in simple terms find $n^{log_b(a)}$ and compare it to $f(n)$ if $f(n)$ is polyno
 then it's case 1. if it is polynomially smaller then it's case 3. otherwise it's case 2
 
 there's a more advanced method called akra-bazzi method
+

@@ -1,4 +1,4 @@
-#!/bin/python3.8
+#!/usr/bin/python
 import subprocess
 def keyboardInterruptHandler(signal, frame):
     print("KeyboardInterrupt (ID: {}) has been caught. Cleaning up...".format(signal))
