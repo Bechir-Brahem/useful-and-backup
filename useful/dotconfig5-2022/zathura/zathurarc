@@ -1,0 +1,20 @@
+map <Left> navigate previous 
+map <Right> navigate next 
+set adjust-open	width
+# set guioptions none
+set statusbar-basename true
+set selection-clipboard clipboard
+
+set font "Hack 15"
+
+# Dracula 
+
+
+
+set recolor-lightcolor          "#282a36" # Background
+set recolor-darkcolor           "#f8f8f2" # Foreground
+
+#
+# Startup options
+#
+# set recolor true
