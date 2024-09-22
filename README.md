@@ -1,0 +1,1 @@
+courses notes and docs are moved to notion
